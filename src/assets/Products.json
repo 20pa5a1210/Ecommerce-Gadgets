@@ -1,0 +1,584 @@
+ {
+  "products": [
+    {
+      "id": "1",
+      "name": "Wireless Bluetooth Headset",
+      "brand": "Example Brand",
+      "price": 49.99,
+      "rating": 4.5,
+      "type": "Headset",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enjoy high-quality sound with our wireless Bluetooth headset. Perfect for music and calls on the go.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Noise-cancelling technology",
+        "Built-in microphone",
+        "Up to 10 hours of battery life",
+        "Foldable and portable design"
+      ],
+      "reviews": [
+        {
+          "author": "John Doe",
+          "rating": 4,
+          "comment": "Great headset! Clear sound and comfortable to wear."
+        },
+        {
+          "author": "Jane Smith",
+          "rating": 5,
+          "comment": "Excellent product. Highly recommended."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Over-Ear Headphones",
+      "brand": "Example Brand",
+      "price": 79.99,
+      "rating": 4.2,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Immerse yourself in your favorite music with our over-ear headphones. Great for home or studio use.",
+      "features": [
+        "High-fidelity audio",
+        "Adjustable headband",
+        "Soft ear cushions for comfort",
+        "Detachable audio cable",
+        "Foldable design for easy storage"
+      ],
+      "reviews": [
+        {
+          "author": "Alex Johnson",
+          "rating": 4,
+          "comment": "Good headphones for the price. Sound quality is decent."
+        },
+        {
+          "author": "Emily Brown",
+          "rating": 4.5,
+          "comment": "Very comfortable to wear. I'm satisfied with my purchase."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Gaming Headset",
+      "brand": "Example Brand",
+      "price": 129.99,
+      "rating": 4.8,
+      "type": "Headset",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enhance your gaming experience with our gaming headset. Crystal-clear audio and built-in microphone.",
+      "features": [
+        "Virtual surround sound",
+        "Noise-cancelling microphone",
+        "Comfortable ear cushions for long gaming sessions",
+        "RGB lighting effects",
+        "Compatible with PC, Xbox, and PlayStation"
+      ],
+      "reviews": [
+        {
+          "author": "Michael Williams",
+          "rating": 5,
+          "comment": "Amazing gaming headset! The sound quality is top-notch."
+        },
+        {
+          "author": "Sarah Thompson",
+          "rating": 4.5,
+          "comment": "Great product for gamers. Highly recommended."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Wireless In-Ear Headphones",
+      "brand": "Example Brand",
+      "price": 39.99,
+      "rating": 4.1,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Experience freedom with our wireless in-ear headphones. Compact and perfect for workouts.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Secure fit for active use",
+        "Sweat-resistant",
+        "Portable charging case",
+        "Up to 6 hours of playtime"
+      ],
+      "reviews": [
+        {
+          "author": "Jessica Anderson",
+          "rating": 4,
+          "comment": "Good sound quality for the price. Comfortable to wear during workouts."
+        },
+        {
+          "author": "Mark Thompson",
+          "rating": 4.5,
+          "comment": "Impressive battery life. I use them daily for jogging."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Noise-Cancelling Headphones",
+      "brand": "Example Brand",
+      "price": 149.99,
+      "rating": 4.6,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Immerse yourself in your favorite music without distractions. Perfect for travel and quiet environments.",
+      "features": [
+        "Active noise-cancellation",
+        "Premium audio quality",
+        "Long-lasting battery",
+        "Comfortable over-ear design",
+        "Foldable and travel-friendly"
+      ],
+      "reviews": [
+        {
+          "author": "David Wilson",
+          "rating": 5,
+          "comment": "Fantastic headphones! Noise cancellation works like magic."
+        },
+        {
+          "author": "Jennifer Miller",
+          "rating": 4.5,
+          "comment": "Great for long flights. Comfortable and excellent sound quality."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Sport Earphones",
+      "brand": "Example Brand",
+      "price": 29.99,
+      "rating": 4.3,
+      "type": "Earphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Stay motivated during workouts with our sport earphones. Lightweight and sweat-resistant.",
+      "features": [
+        "Secure fit for active use",
+        "IPX7 water resistance",
+        "In-line microphone and controls",
+        "Enhanced bass for workout music",
+        "Tangle-free cable"
+      ],
+      "reviews": [
+        {
+          "author": "Sarah Thompson",
+          "rating": 4,
+          "comment": "Good sound quality. They stay in place even during intense workouts."
+        },
+        {
+          "author": "Mike Evans",
+          "rating": 4.5,
+          "comment": "Affordable and durable. Perfect for my runs and gym sessions."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Wireless Gaming Headset",
+      "brand": "Example Brand",
+      "price": 99.99,
+      "rating": 4.7,
+      "type": "Headset",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Take your gaming to the next level with our wireless gaming headset. Designed for comfort and immersive audio.",
+      "features": [
+        "Low-latency wireless connection",
+        "Virtual 7.1 surround sound",
+        "Detachable noise-cancelling microphone",
+        "Up to 15 hours of battery life",
+        "Durable and adjustable design"
+      ],
+      "reviews": [
+        {
+          "author": "Robert Taylor",
+          "rating": 5,
+          "comment": "Superb gaming headset! The sound quality is amazing, and the microphone works flawlessly."
+        },
+        {
+          "author": "Emma Davis",
+          "rating": 4.5,
+          "comment": "Great value for money. Comfortable and delivers immersive gaming audio."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Noise-Cancelling Earbuds",
+      "brand": "Example Brand",
+      "price": 89.99,
+      "rating": 4.4,
+      "type": "Earphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enjoy your music without distractions using our noise-cancelling earbuds. Perfect for travel and commutes.",
+      "features": [
+        "Active noise-cancellation",
+        "High-resolution audio",
+        "Quick charge support",
+        "Comfortable in-ear fit",
+        "Portable charging case"
+      ],
+      "reviews": [
+        {
+          "author": "Sophia Clark",
+          "rating": 4,
+          "comment": "Good sound quality and noise cancellation. The battery life is decent too."
+        },
+        {
+          "author": "William Brown",
+          "rating": 4.5,
+          "comment": "Impressive noise cancellation in such compact earbuds. I use them daily on my train commute."
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Wireless On-Ear Headphones",
+      "brand": "Example Brand",
+      "price": 59.99,
+      "rating": 4.2,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Experience freedom and comfort with our wireless on-ear headphones. Great for daily use.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Up to 20 hours of battery life",
+        "Adjustable headband",
+        "Foldable design for easy portability",
+        "On-ear controls for convenience"
+      ],
+      "reviews": [
+        {
+          "author": "Oliver Smith",
+          "rating": 4,
+          "comment": "Good headphones for the price. The battery life is impressive."
+        },
+        {
+          "author": "Ava Johnson",
+          "rating": 4.5,
+          "comment": "Very comfortable to wear. The sound quality is decent too."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "True Wireless Earbuds",
+      "brand": "Example Brand",
+      "price": 79.99,
+      "rating": 4.8,
+      "type": "Earphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enjoy the freedom of true wireless technology with our earbuds. Compact and perfect for daily use.",
+      "features": [
+        "True wireless design",
+        "Bluetooth 5.0 connectivity",
+        "Up to 6 hours of playtime",
+        "Portable charging case",
+        "IPX6 water resistance"
+      ],
+      "reviews": [
+        {
+          "author": "Noah Anderson",
+          "rating": 5,
+          "comment": "Outstanding earbuds! The sound quality and battery life are impressive."
+        },
+        {
+          "author": "Mia Taylor",
+          "rating": 4.5,
+          "comment": "Great value for money. Comfortable fit and convenient to use."
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Sports Headphones",
+      "brand": "Example Brand",
+      "price": 49.99,
+      "rating": 4.1,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Elevate your workouts with our sports headphones. Designed for comfort and durability.",
+      "features": [
+        "Secure fit for active use",
+        "Sweat-resistant",
+        "Enhanced bass for workout music",
+        "Tangle-free cable",
+        "In-line microphone and controls"
+      ],
+      "reviews": [
+        {
+          "author": "Ethan Roberts",
+          "rating": 4,
+          "comment": "Good headphones for workouts. The sound quality is decent, and they stay in place."
+        },
+        {
+          "author": "Charlotte Davis",
+          "rating": 4.5,
+          "comment": "Comfortable and durable. I use them daily for running and gym sessions."
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Wireless Noise-Cancelling Headphones",
+      "brand": "Example Brand",
+      "price": 199.99,
+      "rating": 4.9,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Immerse yourself in your music with our wireless noise-cancelling headphones. Perfect for audiophiles.",
+      "features": [
+        "Active noise-cancellation",
+        "Premium Hi-Fi audio",
+        "Long battery life",
+        "Comfortable over-ear design",
+        "Foldable and travel-friendly"
+      ],
+      "reviews": [
+        {
+          "author": "James Wilson",
+          "rating": 5,
+          "comment": "Incredible headphones! The sound quality and noise cancellation are unmatched."
+        },
+        {
+          "author": "Lily Johnson",
+          "rating": 4.5,
+          "comment": "Highly recommended. Comfortable to wear for long listening sessions."
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Bluetooth Earpiece",
+      "brand": "Example Brand",
+      "price": 29.99,
+      "rating": 4.2,
+      "type": "Headset",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Stay connected on the go with our Bluetooth earpiece. Perfect for hands-free calling.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Clear call quality",
+        "Lightweight and comfortable",
+        "Up to 8 hours of talk time",
+        "Noise reduction technology"
+      ],
+      "reviews": [
+        {
+          "author": "Lucas Martin",
+          "rating": 4,
+          "comment": "Good earpiece for the price. The call quality is decent."
+        },
+        {
+          "author": "Chloe Thompson",
+          "rating": 4.5,
+          "comment": "Comfortable to wear, and the battery life is satisfactory."
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Wireless Bone Conduction Headphones",
+      "brand": "Example Brand",
+      "price": 129.99,
+      "rating": 4.7,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Experience open-ear listening with our wireless bone conduction headphones. Ideal for outdoor activities.",
+      "features": [
+        "Bone conduction technology",
+        "Open-ear design for situational awareness",
+        "Bluetooth connectivity",
+        "Sweat-resistant",
+        "Up to 8 hours of battery life"
+      ],
+      "reviews": [
+        {
+          "author": "Benjamin Clark",
+          "rating": 5,
+          "comment": "Unique headphones! The sound quality and comfort are impressive."
+        },
+        {
+          "author": "Victoria Wilson",
+          "rating": 4.5,
+          "comment": "Great for running and outdoor activities. The open-ear design is a game-changer."
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "Wireless Sports Earphones",
+      "brand": "Example Brand",
+      "price": 39.99,
+      "rating": 4.3,
+      "type": "Earphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Stay motivated during workouts with our wireless sports earphones. Sweat-resistant and secure fit.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Secure and comfortable fit",
+        "IPX7 water resistance",
+        "Up to 10 hours of playtime",
+        "In-line microphone and controls"
+      ],
+      "reviews": [
+        {
+          "author": "Daniel Brown",
+          "rating": 4,
+          "comment": "Good earphones for workouts. They stay in place and the sound quality is decent."
+        },
+        {
+          "author": "Grace Davis",
+          "rating": 4.5,
+          "comment": "Affordable and reliable. Perfect for my runs and gym sessions."
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "On-Ear Headphones",
+      "brand": "Example Brand",
+      "price": 59.99,
+      "rating": 4.6,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enjoy your favorite music with our on-ear headphones. Sleek and stylish design.",
+      "features": [
+        "High-quality audio",
+        "Adjustable headband",
+        "Soft ear cushions for comfort",
+        "Detachable audio cable",
+        "Foldable design for easy storage"
+      ],
+      "reviews": [
+        {
+          "author": "Andrew Wilson",
+          "rating": 5,
+          "comment": "Great headphones! The sound quality and comfort exceeded my expectations."
+        },
+        {
+          "author": "Natalie Miller",
+          "rating": 4.5,
+          "comment": "Good value for money. I use them daily for work and they're reliable."
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Wireless Neckband Earphones",
+      "brand": "Example Brand",
+      "price": 49.99,
+      "rating": 4.4,
+      "type": "Earphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Experience convenience and comfort with our wireless neckband earphones. Perfect for daily use.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Flexible neckband for a secure fit",
+        "Up to 12 hours of playtime",
+        "In-line microphone and controls",
+        "Magnetic earbuds for easy storage"
+      ],
+      "reviews": [
+        {
+          "author": "Henry Thompson",
+          "rating": 4,
+          "comment": "Good earphones for the price. The battery life is satisfactory."
+        },
+        {
+          "author": "Sophie Evans",
+          "rating": 4.5,
+          "comment": "Very comfortable to wear. The sound quality is decent too."
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Gaming Headphones",
+      "brand": "Example Brand",
+      "price": 79.99,
+      "rating": 4.8,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enhance your gaming experience with our gaming headphones. Immersive audio and ergonomic design.",
+      "features": [
+        "Virtual 7.1 surround sound",
+        "Noise-cancelling microphone",
+        "Comfortable over-ear fit",
+        "RGB lighting effects",
+        "Durable construction"
+      ],
+      "reviews": [
+        {
+          "author": "Joshua Taylor",
+          "rating": 5,
+          "comment": "Outstanding gaming headphones! The sound quality and comfort are top-notch."
+        },
+        {
+          "author": "Emily Clark",
+          "rating": 4.5,
+          "comment": "Great value for money. The microphone works well, and the audio is immersive."
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Wireless In-Ear Headphones",
+      "brand": "Example Brand",
+      "price": 69.99,
+      "rating": 4.2,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Experience freedom and convenience with our wireless in-ear headphones. Compact and reliable.",
+      "features": [
+        "Bluetooth 5.0 connectivity",
+        "Up to 8 hours of playtime",
+        "Secure fit for active use",
+        "IPX5 water resistance",
+        "Quick charge support"
+      ],
+      "reviews": [
+        {
+          "author": "Michael Brown",
+          "rating": 4,
+          "comment": "Good headphones for workouts. They stay in place and the sound quality is decent."
+        },
+        {
+          "author": "Lily Johnson",
+          "rating": 4.5,
+          "comment": "Affordable and reliable. Perfect for my runs and gym sessions."
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Over-Ear Headphones",
+      "brand": "Example Brand",
+      "price": 89.99,
+      "rating": 4.7,
+      "type": "Headphones",
+      "image": "http://source.unsplash.com/1800x900?headphones",
+      "description": "Enjoy immersive sound with our over-ear headphones. Ideal for music enthusiasts and audiophiles.",
+      "features": [
+        "High-fidelity audio",
+        "Comfortable over-ear design",
+        "Detachable audio cable",
+        "Foldable for portability",
+        "Adjustable headband"
+      ],
+      "reviews": [
+        {
+          "author": "Daniel Wilson",
+          "rating": 5,
+          "comment": "Excellent headphones! The sound quality is superb, and they're very comfortable to wear."
+        },
+        {
+          "author": "Sophia Miller",
+          "rating": 4.5,
+          "comment": "Great value for money. They exceeded my expectations in terms of sound quality and comfort."
+        }
+      ]
+    }
+  ]
+}
