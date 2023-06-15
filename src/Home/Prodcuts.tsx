@@ -14,9 +14,9 @@ interface ProductProps {
     products: Product[];
 }
 
-const Product = ({ products }: ProductProps)  => {
+const Product = ({ products }: ProductProps) => {
     return (
-        <div className="flex flex-row flex-wrap space-x-4 m-4 justify-center">
+        <div className="flex flex-wrap  space-x-4 m-4 justify-center">
             {products.map((product) => (
                 <div key={product.id} className="my-4 w-1/4  rounded-lg overflow-hidden border">
                     <div className="relative">
