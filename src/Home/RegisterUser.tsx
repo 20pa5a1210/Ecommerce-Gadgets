@@ -38,7 +38,7 @@ export default function RegisterUser() {
     };
 
     if (registered) {
-        return <Navigate to="/student/login" />;
+        return <Navigate to="/user/login" />;
     }
 
     return (
@@ -118,7 +118,7 @@ export default function RegisterUser() {
                             {loading ? "Loading..." : "Register"}
                         </button>
                         <div className="flex justify-between mt-4 text-sm">
-                            <Link to="/student/login" className="text-blue-500">
+                            <Link to="/user/login" className="text-blue-500">
                                 Existing User? Login
                             </Link>
                         </div>
