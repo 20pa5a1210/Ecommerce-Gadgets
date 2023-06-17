@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 interface FormData {
   email: string;
@@ -17,6 +18,11 @@ export default function LoginUser() {
   } = useForm<FormData>();
   const onSubmit = (data: FormData) => {
     setLoading(true);
+
+    axios.post("http://localhost:8080/user/login", data).then((res) => {
+      localStorage.setItem("token", res.data.token);
+      console.log(res.data.token);
+    });
 
     setLoading(false);
   };
