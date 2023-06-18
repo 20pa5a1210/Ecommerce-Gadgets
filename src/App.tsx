@@ -3,22 +3,23 @@ import RegisterUser from "./Home/RegisterUser";
 import LandingPage from "./Home/LandingPage";
 import ViewProduct from "./Home/SingleProduct";
 import LoginUser from "./Home/LoginUser";
-import { useState } from "react";
-import { userStore } from "./userStore";
+import Dashboard from "./Home/Dashboard";
+import { UserProvider } from "./Home/userStore";
 
 export default function App() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
-
   return (
-    <userStore.Provider value={{ token, setToken }}>
+    <UserProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/user/register" element={<RegisterUser />} />
           <Route path="/product/:productId" element={<ViewProduct />} />
           <Route path="/user/login" element={<LoginUser />} />
+
+          <Route path="/user/dashboard" element={<Dashboard />} />
+
+          <Route path="/user/register" element={<RegisterUser />} />
         </Routes>
       </BrowserRouter>
-    </userStore.Provider>
+    </UserProvider>
   );
 }

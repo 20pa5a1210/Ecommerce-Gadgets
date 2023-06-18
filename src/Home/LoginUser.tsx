@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar from "./Navbar";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "./userStore";
 
 interface FormData {
   email: string;
@@ -10,6 +11,8 @@ interface FormData {
 }
 
 export default function LoginUser() {
+  const { token, login } = useContext(UserContext);
+
   const [loading, setLoading] = useState(false);
   const {
     register,
@@ -19,13 +22,18 @@ export default function LoginUser() {
   const onSubmit = (data: FormData) => {
     setLoading(true);
 
-    axios.post("http://localhost:8080/user/login", data).then((res) => {
-      localStorage.setItem("token", res.data.token);
-      console.log(res.data.token);
-    });
+    axios
+      .post("http://localhost:8080/user/login", data)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        login(res.data.token);
+        console.log(res.data.token);
+      })
+      .catch((error) => alert(error.message));
 
     setLoading(false);
   };
+  if (token) return <Navigate to="/user/dashboard" />;
   return (
     <>
       <Navbar />
