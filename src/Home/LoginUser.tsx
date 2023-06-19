@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "./userStore";
+import Modal from "./utils/Modal";
 
 interface FormData {
   email: string;
@@ -11,6 +12,8 @@ interface FormData {
 }
 
 export default function LoginUser() {
+  const [errorModal, setErrorModal] = useState(false);
+  const [error, setError] = useState("");
   const { token, login } = useContext(UserContext);
 
   const [loading, setLoading] = useState(false);
@@ -29,7 +32,11 @@ export default function LoginUser() {
         login(res.data.token);
         console.log(res.data.token);
       })
-      .catch((error) => alert(error.message));
+      .catch((error) => {
+        setError(error.response.data.error);
+        setErrorModal(true);
+        console.log(error.response.data.error);
+      });
 
     setLoading(false);
   };
@@ -37,6 +44,9 @@ export default function LoginUser() {
   return (
     <>
       <Navbar />
+      {errorModal && (
+        <Modal open={errorModal} setOpen={setErrorModal} message={error} />
+      )}
       <div className="flex flex-col h-screen w-screen md:flex-row items-center justify-center mx-auto bg-gray-400/50">
         <div className="w-full  md:w-1/2 bg-white rounded-lg shadow-md p-8 m-4">
           <h2 className="text-2xl font-bold mb-4">User Login</h2>
@@ -86,7 +96,7 @@ export default function LoginUser() {
               }`}
               disabled={loading}
             >
-              {loading ? "Loading..." : "Register"}
+              {loading ? "Loading..." : "login"}
             </button>
             <div className="flex justify-between mt-4 text-sm">
               <Link to="/user/register" className="text-blue-500">
