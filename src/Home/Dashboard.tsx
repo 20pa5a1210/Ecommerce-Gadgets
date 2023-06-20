@@ -30,17 +30,41 @@ export default function Dashboard() {
   }, []);
   if (!token) return <Navigate to="/user/login" />;
   return (
-    <div className="flex flex-wrap">
-      <h1>Dashboard</h1>
-
-      {userProfile && (
-        <div>
-          <h1>{userProfile.username}</h1>
-          <h1>{userProfile.email}</h1>
+    <div className="bg-gray-100 min-h-screen">
+      <header className="bg-white shadow">
+        <div className="container mx-auto px-4">
+          <nav className="flex justify-between items-center py-6">
+            <div className="text-lg font-bold">Dashboard</div>
+            <div>
+              <button
+                onClick={handleLogout}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Logout
+              </button>
+            </div>
+          </nav>
         </div>
-      )}
+      </header>
 
-      <button onClick={handleLogout}>Logout</button>
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded shadow">
+            <h2 className="text-lg font-bold mb-4">
+              Welcome, {userProfile?.username}!
+            </h2>
+            <p>Email: {userProfile?.email}</p>
+          </div>
+          <div className="bg-white p-6 rounded shadow">
+            <h2 className="text-lg font-bold mb-4">Order History</h2>
+            {/* Display order history here */}
+          </div>
+          <div className="bg-white p-6 rounded shadow">
+            <h2 className="text-lg font-bold mb-4">Saved Items</h2>
+            {/* Display saved items here */}
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
