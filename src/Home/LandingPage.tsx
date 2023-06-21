@@ -10,7 +10,6 @@ export default function LandingPage() {
         <>
             <Navbar />
             <Banner />
-            
             <ProductPage/>
         </>
     )
