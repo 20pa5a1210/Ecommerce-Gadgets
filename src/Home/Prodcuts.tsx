@@ -1,31 +1,35 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../ProductManagement/CartStore";
 
-interface Product {
-  _id: string;
-  id: string;
-  name: string;
-  brand: string;
-  price: number;
-  rating: number;
-  type: string;
-  image: string;
-  description: string;
-}
+import { BaseProduct as Product } from "../ProductManagement/ProductModels";
 
 interface ProductProps {
   products: Product[];
 }
 
 const Product = ({ products }: ProductProps) => {
+  const { cartDispatch, cartState } = useContext(CartContext);
+
+  const addToCart = (_id: string) => {
+    const product: Product | undefined = products.find(
+      (product) => product._id === _id
+    );
+    if (product)
+      cartDispatch({
+        type: "ADD_ITEM",
+        payload: { ...product, quantity: 1 },
+      });
+    console.log(cartState);
+  };
   return (
     <div className="flex flex-wrap  space-x-4 m-4 justify-center">
       {products.map((product) => (
-        <Link
-          to={`/product/${product._id}`}
+        <div
           key={product.id}
           className="my-4 w-1/4 cursor-pointer rounded-lg overflow-hidden border"
         >
-          <div className="relative">
+          <Link to={`/product/${product._id}`} className="relative">
             <img
               src={`https://source.unsplash.com/1200x800?${product.type},${product.name}`}
               alt={product.name}
@@ -75,7 +79,7 @@ const Product = ({ products }: ProductProps) => {
                 />
               </svg>
             </button>
-          </div>
+          </Link>
           <div className="p-2 flex flex-col h-1/2">
             <h2 className="text-lg font-semibold mb-2 overflow-hidden overflow-ellipsis">
               {product.name}
@@ -120,11 +124,14 @@ const Product = ({ products }: ProductProps) => {
               </span>
             </div>
 
-            <button className="bg-red-500 w-1/2 text-white px-4 py-2 rounded-xl hover:bg-slate-400 hover:text-black">
+            <button
+              onClick={() => addToCart(product._id)}
+              className="bg-red-500 w-1/2 text-white px-4 py-2 rounded-xl hover:bg-slate-400 hover:text-black"
+            >
               Add to Cart
             </button>
           </div>
-        </Link>
+        </div>
       ))}
     </div>
   );

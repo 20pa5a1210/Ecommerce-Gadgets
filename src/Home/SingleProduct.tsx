@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
-
-interface Product {
-  _id: string;
-  id: string;
-  name: string;
-  brand: string;
-  price: number;
-  rating: number;
-  type: string;
-  image: string;
-  description: string;
+import { CartContext } from "../ProductManagement/CartStore";
+import { BaseProduct } from "../ProductManagement/ProductModels";
+interface Product extends BaseProduct {
   features: string[];
   reviews: Review[];
 }
@@ -22,12 +14,17 @@ interface Review {
   comment: string;
 }
 
+function createCartItem(product: Product): BaseProduct {
+  const { features, reviews, ...cartItem } = product;
+  return cartItem;
+}
+
 const ViewProduct = () => {
+  const { cartDispatch, cartState } = useContext(CartContext);
+
   const { productId } = useParams<{ productId: string }>();
-  console.log(productId);
 
   const [product, setProduct] = useState<Product | null>(null);
-  console.log(product);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -53,6 +50,17 @@ const ViewProduct = () => {
       </div>
     );
   }
+  const addToCart = () => {
+    console.log("Add to cart clicked", product);
+    if (product) {
+      const cartItem = createCartItem(product);
+      cartDispatch({
+        type: "ADD_ITEM",
+        payload: { ...cartItem, quantity: 1 },
+      });
+      console.log(cartState);
+    }
+  };
 
   return (
     <>
@@ -80,7 +88,10 @@ const ViewProduct = () => {
               ))}
             </ul>
             <div className="flex space-x-4 mb-4">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+              <button
+                onClick={addToCart}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              >
                 Add to Cart
               </button>
               <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">

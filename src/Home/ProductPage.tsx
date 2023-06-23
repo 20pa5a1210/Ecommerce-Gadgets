@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
 import Product from "./Prodcuts";
-
-interface Products {
-  _id: string;
-  id: string;
-  name: string;
-  brand: string;
-  price: number;
-  rating: number;
-  type: string;
-  image: string;
-  description: string;
-}
+import { BaseProduct as Products } from "../ProductManagement/ProductModels";
 
 export default function ProductPage() {
   const [products, setProducts] = useState<Products[]>([]);

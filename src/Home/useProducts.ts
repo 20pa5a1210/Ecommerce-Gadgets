@@ -1,15 +1,5 @@
-import  { useEffect, useState } from "react";
-
-interface Product {
-    id: string;
-    name: string;
-    brand: string;
-    price: number;
-    rating: number;
-    type: string;
-    image: string;
-    description: string;
-}
+import { useEffect, useState } from "react";
+import { BaseProduct as Product } from "../ProductManagement/ProductModels";
 export default function useProducts(): Product[] {
 
     const [products, setProducts] = useState<Product[]>([]);
