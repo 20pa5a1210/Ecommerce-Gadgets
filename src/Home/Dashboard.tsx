@@ -24,7 +24,6 @@ export default function Dashboard() {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setUserProfile(res.data.user);
       });
   }, []);
