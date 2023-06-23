@@ -11,6 +11,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     fetchProducts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, productsPerPage]);
 
   const fetchProducts = async () => {

@@ -15,6 +15,7 @@ interface Review {
 }
 
 function createCartItem(product: Product): BaseProduct {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { features, reviews, ...cartItem } = product;
   return cartItem;
 }
