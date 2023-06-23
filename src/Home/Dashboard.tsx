@@ -16,7 +16,7 @@ export default function Dashboard() {
     logout();
   };
 
-  useEffect(() => {
+  const handleProfile = () => {
     axios
       .get("http://localhost:8080/user/auth/profile", {
         headers: {
@@ -26,6 +26,11 @@ export default function Dashboard() {
       .then((res) => {
         setUserProfile(res.data.user);
       });
+  };
+
+  useEffect(() => {
+    handleProfile;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (!token) return <Navigate to="/user/login" />;
   return (
