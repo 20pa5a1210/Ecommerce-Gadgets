@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import { CartContext } from "../ProductManagement/CartStore";
 import { BaseProduct } from "../ProductManagement/ProductModels";
+import { UserContext } from "./userStore";
 interface Product extends BaseProduct {
   features: string[];
   reviews: Review[];
@@ -22,7 +23,7 @@ function createCartItem(product: Product): BaseProduct {
 
 const ViewProduct = () => {
   const { cartDispatch, cartState } = useContext(CartContext);
-
+  const { token } = useContext(UserContext);
   const { productId } = useParams<{ productId: string }>();
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -53,6 +54,7 @@ const ViewProduct = () => {
   }
   const addToCart = () => {
     console.log("Add to cart clicked", product);
+
     if (product) {
       const cartItem = createCartItem(product);
       cartDispatch({

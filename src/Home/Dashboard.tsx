@@ -10,7 +10,7 @@ interface UserProfile {
   confirmPassword: string;
 }
 export default function Dashboard() {
-  const { token, logout } = useContext(UserContext);
+  const { token, setUser, logout } = useContext(UserContext);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   console.log(userProfile);
 
@@ -27,6 +27,7 @@ export default function Dashboard() {
       })
       .then((res) => {
         setUserProfile(res.data.user);
+        setUser(res.data.user.username);
       });
   };
 
