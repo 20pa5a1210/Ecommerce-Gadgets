@@ -12,8 +12,8 @@ import Cart from "./ProductManagement/Cart";
 export default function App() {
   const { token } = useContext(UserContext);
   return (
-    <CartProvider>
-      <UserProvider>
+    <UserProvider>
+      <CartProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -31,7 +31,7 @@ export default function App() {
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
-      </UserProvider>
-    </CartProvider>
+      </CartProvider>
+    </UserProvider>
   );
 }

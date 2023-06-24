@@ -12,6 +12,8 @@ interface UserProfile {
 export default function Dashboard() {
   const { token, logout } = useContext(UserContext);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  console.log(userProfile);
+
   const handleLogout = () => {
     logout();
   };
@@ -29,8 +31,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    handleProfile;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    handleProfile();
   }, []);
   if (!token) return <Navigate to="/user/login" />;
   return (

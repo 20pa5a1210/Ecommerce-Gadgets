@@ -2,17 +2,17 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../ProductManagement/CartStore";
 
-import { BaseProduct as Product } from "../ProductManagement/ProductModels";
+import { BaseProduct as Products } from "../ProductManagement/ProductModels";
 
 interface ProductProps {
-  products: Product[];
+  products: Products[];
 }
 
 const Product = ({ products }: ProductProps) => {
   const { cartDispatch, cartState } = useContext(CartContext);
 
   const addToCart = (_id: string) => {
-    const product: Product | undefined = products.find(
+    const product: Products | undefined = products.find(
       (product) => product._id === _id
     );
     if (product)
