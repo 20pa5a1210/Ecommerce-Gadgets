@@ -5,7 +5,7 @@ import { CartContext } from "../ProductManagement/CartStore";
 import { BaseProduct } from "../ProductManagement/ProductModels";
 import { UserContext } from "./userStore";
 import { addToCart } from "../ProductManagement/Cart/AddCart";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 export interface Product extends BaseProduct {
   features: string[];

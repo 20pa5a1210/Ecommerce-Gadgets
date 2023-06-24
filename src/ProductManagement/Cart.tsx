@@ -1,13 +1,22 @@
-import React, { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "./CartStore";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Home/userStore";
 
-const Cart: React.FC = () => {
+const Cart = () => {
   const { cartState, cartDispatch } = useContext(CartContext);
+  const navigate = useNavigate();
+  const { token } = useContext(UserContext);
 
   const removeItemFromCart = (itemId: string) => {
     cartDispatch({ type: "REMOVE_ITEM", payload: itemId });
   };
-
+  useEffect(() => {
+    // Check if user is logged in
+    if (!token) {
+      navigate("/user/login"); // Redirect to login page
+    }
+  }, [token, navigate]);
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">Cart</h2>

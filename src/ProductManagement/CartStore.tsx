@@ -46,6 +46,7 @@ export const CartProvider: React.FC<UserProviderProps> = ({ children }) => {
           cartDispatch({ type: "SET_CART", payload: response.data.cartItems });
         });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

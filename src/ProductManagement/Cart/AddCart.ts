@@ -13,7 +13,7 @@ type CartItemProps = {
 
 export const addToCart = ({ product, token, username, cartDispatch }: CartItemProps) => {
     const newproduct = createCartItem(product);
-
+    if (!token) return toast.error("Please login to add to cart")
     if (token) {
         try {
             axios
@@ -48,6 +48,7 @@ export const addToCart = ({ product, token, username, cartDispatch }: CartItemPr
 function createCartItem(product: Product | BaseProduct): BaseProduct {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     if ("features" in product) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { features, reviews, ...cartItem } = product;
         return cartItem;
     }
