@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import Product from "./Prodcuts";
-import { BaseProduct as Products } from "../ProductManagement/ProductModels";
+import { BaseProduct } from "../ProductManagement/ProductModels";
+import Products from "./Prodcuts";
 
 export default function ProductPage() {
-  const [products, setProducts] = useState<Products[]>([]);
+  const [products, setProducts] = useState<BaseProduct[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [productsPerPage] = useState(6);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [cache, setCache] = useState<{ [key: string]: Products[] }>({});
+  const [cache, setCache] = useState<{ [key: string]: BaseProduct[] }>({});
 
   useEffect(() => {
     fetchProducts();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, productsPerPage]);
 
   const fetchProducts = async () => {
@@ -44,7 +44,7 @@ export default function ProductPage() {
 
   return (
     <>
-      {products && <Product products={products} />}
+      {products && <Products products={products} />}
       <div className="flex items-center justify-center my-4">
         <button
           className="px-4 py-2 mr-2 text-white bg-blue-500 rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed"

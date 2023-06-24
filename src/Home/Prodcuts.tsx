@@ -2,28 +2,30 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../ProductManagement/CartStore";
 
-import { BaseProduct as Products } from "../ProductManagement/ProductModels";
+import { BaseProduct } from "../ProductManagement/ProductModels";
+import { addToCart } from "../ProductManagement/Cart/AddCart";
+import { UserContext } from "./userStore";
+import { Toaster } from "react-hot-toast";
 
 interface ProductProps {
-  products: Products[];
+  products: BaseProduct[];
 }
 
-const Product = ({ products }: ProductProps) => {
-  const { cartDispatch, cartState } = useContext(CartContext);
+const Products = ({ products }: ProductProps) => {
+  const { cartDispatch } = useContext(CartContext);
+  const { token, username } = useContext(UserContext);
 
-  const addToCart = (_id: string) => {
-    const product: Products | undefined = products.find(
+  const addCart = (_id: string) => {
+    const product: BaseProduct | undefined = products.find(
       (product) => product._id === _id
     );
-    if (product)
-      cartDispatch({
-        type: "ADD_ITEM",
-        payload: { ...product, quantity: 1 },
-      });
-    console.log(cartState);
+    if (product) {
+      addToCart({ product, token, username, cartDispatch });
+    }
   };
   return (
     <div className="flex flex-wrap  space-x-4 m-4 justify-center">
+      <Toaster />
       {products.map((product) => (
         <div
           key={product.id}
@@ -125,7 +127,7 @@ const Product = ({ products }: ProductProps) => {
             </div>
 
             <button
-              onClick={() => addToCart(product._id)}
+              onClick={() => addCart(product._id)}
               className="bg-red-500 w-1/2 text-white px-4 py-2 rounded-xl hover:bg-slate-400 hover:text-black"
             >
               Add to Cart
@@ -137,4 +139,4 @@ const Product = ({ products }: ProductProps) => {
   );
 };
 
-export default Product;
+export default Products;

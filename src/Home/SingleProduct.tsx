@@ -4,7 +4,10 @@ import Navbar from "./Navbar";
 import { CartContext } from "../ProductManagement/CartStore";
 import { BaseProduct } from "../ProductManagement/ProductModels";
 import { UserContext } from "./userStore";
-interface Product extends BaseProduct {
+import { addToCart } from "../ProductManagement/Cart/AddCart";
+import { Toaster, toast } from "react-hot-toast";
+
+export interface Product extends BaseProduct {
   features: string[];
   reviews: Review[];
 }
@@ -15,15 +18,9 @@ interface Review {
   comment: string;
 }
 
-function createCartItem(product: Product): BaseProduct {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { features, reviews, ...cartItem } = product;
-  return cartItem;
-}
-
 const ViewProduct = () => {
-  const { cartDispatch, cartState } = useContext(CartContext);
-  const { token } = useContext(UserContext);
+  const { username, token } = useContext(UserContext);
+  const { cartDispatch } = useContext(CartContext);
   const { productId } = useParams<{ productId: string }>();
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -52,21 +49,10 @@ const ViewProduct = () => {
       </div>
     );
   }
-  const addToCart = () => {
-    console.log("Add to cart clicked", product);
-
-    if (product) {
-      const cartItem = createCartItem(product);
-      cartDispatch({
-        type: "ADD_ITEM",
-        payload: { ...cartItem, quantity: 1 },
-      });
-      console.log(cartState);
-    }
-  };
 
   return (
     <>
+      <Toaster />
       <Navbar />
       <div className="container mx-auto py-8">
         <div className="flex flex-col md:flex-row">
@@ -92,7 +78,9 @@ const ViewProduct = () => {
             </ul>
             <div className="flex space-x-4 mb-4">
               <button
-                onClick={addToCart}
+                onClick={() => {
+                  addToCart({ product, username, token, cartDispatch });
+                }}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
               >
                 Add to Cart
