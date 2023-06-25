@@ -6,7 +6,7 @@ import LoginUser from "./Home/LoginUser";
 import Dashboard from "./Home/Dashboard";
 import { UserProvider } from "./Home/userStore";
 import { CartProvider } from "./ProductManagement/CartStore";
-import Cart from "./ProductManagement/Cart";
+import Cart from "./ProductManagement/Cart/Cart";
 
 export default function App() {
   return (

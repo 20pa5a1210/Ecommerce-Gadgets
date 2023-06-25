@@ -5,21 +5,31 @@ import { UserContext } from "../Home/userStore";
 import { Toaster } from "react-hot-toast";
 import Navbar from "../Home/Navbar";
 import { clearCart } from "./Cart/CleatCart";
+import { removeItemFromCart } from "./Cart/RemoveCart";
 
-const Cart = () => {
+const Cart1 = () => {
   const { cartState, cartDispatch } = useContext(CartContext);
   const navigate = useNavigate();
   const { token, username } = useContext(UserContext);
 
-  const removeItemFromCart = (itemId: string) => {
-    cartDispatch({ type: "REMOVE_ITEM", payload: itemId });
-  };
   useEffect(() => {
     // Check if user is logged in
     if (!token) {
       navigate("/user/login"); // Redirect to login page
     }
   }, [token, navigate]);
+  if (cartState.cartItems.length === 0) {
+    return (
+      <>
+        <Navbar />
+        <div className="p-4">
+          <Toaster />
+          <h2 className="text-2xl font-bold mb-4">Cart</h2>
+          <h3 className="text-lg">Your cart is empty</h3>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <Navbar />
@@ -36,7 +46,14 @@ const Cart = () => {
               <p className="mb-2">TotalPrice: ${total}</p>
               <button
                 className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-                onClick={() => removeItemFromCart(item.id)}
+                onClick={() =>
+                  removeItemFromCart({
+                    username,
+                    token,
+                    cartDispatch,
+                    itemId: item._id,
+                  })
+                }
               >
                 Remove
               </button>
@@ -56,4 +73,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Cart1;

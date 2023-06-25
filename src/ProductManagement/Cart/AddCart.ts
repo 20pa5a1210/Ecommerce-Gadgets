@@ -8,7 +8,6 @@ type CartItemProps = {
     username: string | null;
     product: Product | BaseProduct;
     cartDispatch: React.Dispatch<CartAction>;
-
 }
 
 export const addToCart = ({ product, token, username, cartDispatch }: CartItemProps) => {
