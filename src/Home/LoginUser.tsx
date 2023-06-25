@@ -41,6 +41,14 @@ export default function LoginUser() {
     setLoading(false);
   };
   if (token) return <Navigate to="/user/dashboard" />;
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-14 w-14 border-t-2 border-b-2 border-gray-900"></div>
+        <h2 className="text-xl space-x-3 px-4">Loading...</h2>
+      </div>
+    );
+  }
   return (
     <>
       <Navbar />

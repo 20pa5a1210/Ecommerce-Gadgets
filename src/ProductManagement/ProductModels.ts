@@ -10,3 +10,7 @@ export interface BaseProduct {
     image: string;
     description: string;
 }
+
+export interface CartItemProduct extends BaseProduct {
+    quantity: number;
+}
