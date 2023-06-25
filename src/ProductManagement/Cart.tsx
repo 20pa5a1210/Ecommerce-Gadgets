@@ -2,9 +2,9 @@ import { useContext, useEffect } from "react";
 import { CartContext } from "./CartStore";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Home/userStore";
-import axios from "axios";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import Navbar from "../Home/Navbar";
+import { clearCart } from "./Cart/CleatCart";
 
 const Cart = () => {
   const { cartState, cartDispatch } = useContext(CartContext);
@@ -13,29 +13,6 @@ const Cart = () => {
 
   const removeItemFromCart = (itemId: string) => {
     cartDispatch({ type: "REMOVE_ITEM", payload: itemId });
-  };
-  const clearCart = () => {
-    if (token) {
-      axios
-        .delete(`http://localhost:8080/cart/clear/${username}`, {
-          headers: {
-            Authorization: `${token}`,
-          },
-        })
-        .then((res) => {
-          cartDispatch({
-            type: "CLEAR_CART",
-          });
-          cartDispatch({
-            type: "SET_CART",
-            payload: res.data.cartItems,
-          });
-          toast.success("Cart cleared");
-        })
-        .catch((err) => {
-          toast.error(err.response.data.message);
-        });
-    }
   };
   useEffect(() => {
     // Check if user is logged in
@@ -68,7 +45,9 @@ const Cart = () => {
         })}
         <button
           className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
-          onClick={clearCart}
+          onClick={() => {
+            clearCart({ cartDispatch, token, username });
+          }}
         >
           Clear Cart
         </button>
