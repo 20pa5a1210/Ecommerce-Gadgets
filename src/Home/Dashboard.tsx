@@ -33,6 +33,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     handleProfile();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (!token) return <Navigate to="/user/login" />;
   return (
