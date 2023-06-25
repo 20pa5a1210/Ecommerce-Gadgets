@@ -15,7 +15,9 @@ export type CartAction =
   | { type: "ADD_ITEM"; payload: Product }
   | { type: "REMOVE_ITEM"; payload: string }
   | { type: "CLEAR_CART" }
-  | { type: "SET_CART"; payload: Product[] };
+  | { type: "SET_CART"; payload: Product[] }
+  | { type: "INCREASE_QUANTITY"; payload: string }
+  | { type: "DECREASE_QUANTITY"; payload: string };
 
 export const CartContext = createContext<{
   cartState: CartState;
@@ -46,7 +48,7 @@ export const CartProvider: React.FC<UserProviderProps> = ({ children }) => {
           cartDispatch({ type: "SET_CART", payload: response.data.cartItems });
         });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

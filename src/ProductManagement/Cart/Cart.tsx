@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { removeItemFromCart } from "./RemoveCart";
 import { clearCart } from "./CleatCart";
 import { CartItemProduct } from "../ProductModels";
+import { DecrementQuantity, IncrementQuantity } from "./IncrementQuantity";
 
 const Cart = () => {
   const { cartState, cartDispatch } = useContext(CartContext);
@@ -28,13 +29,13 @@ const Cart = () => {
     });
     return totalPrice.toFixed(2);
   };
-
   return (
     <>
       <Navbar />
       <Toaster />
       <div className="max-w-md mx-auto p-4">
         <h2 className="text-2xl font-bold mb-4">Cart</h2>
+
         {cartState.cartItems.length === 0 ? (
           <p className="text-gray-600">Cart is empty</p>
         ) : (
@@ -53,11 +54,32 @@ const Cart = () => {
                   <h3 className="text-xl font-medium">{item.name}</h3>
                   <p className="text-gray-600 text-lg">Price: ${item.price}</p>
                   <div className="flex items-center space-x-2">
-                    <button className="text-gray-500 text-lg hover:text-gray-800 focus:outline-none">
+                    <button
+                      disabled={item.quantity === 1}
+                      onClick={() => {
+                        DecrementQuantity({
+                          token,
+                          username,
+                          cartDispatch,
+                          itemId: item._id,
+                        });
+                      }}
+                      className="text-gray-500 text-lg hover:text-gray-800 focus:outline-none"
+                    >
                       -
                     </button>
                     <span className="font-medium text-lg">{item.quantity}</span>
-                    <button className="text-gray-500 text-lg hover:text-gray-800 focus:outline-none">
+                    <button
+                      onClick={() =>
+                        IncrementQuantity({
+                          token,
+                          username,
+                          cartDispatch,
+                          itemId: item._id,
+                        })
+                      }
+                      className="text-gray-500 text-lg hover:text-gray-800 focus:outline-none"
+                    >
                       +
                     </button>
                   </div>

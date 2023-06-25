@@ -41,7 +41,34 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
             return {
                 ...state,
                 cartItems: action.payload,
+            };
+        case "INCREASE_QUANTITY": {
+            const existingItemIndex = state.cartItems.findIndex((item) => item._id === action.payload);
+            const updatedCartItems = [...state.cartItems];
+            updatedCartItems[existingItemIndex] = {
+                ...updatedCartItems[existingItemIndex],
+                quantity: updatedCartItems[existingItemIndex].quantity + 1,
+            };
+            return {
+                ...state,
+                cartItems: updatedCartItems,
+            };
+
+        }
+
+        case "DECREASE_QUANTITY": {
+            const existingItemIndex = state.cartItems.findIndex((item) => item._id === action.payload);
+            const updatedCartItems = [...state.cartItems];
+            updatedCartItems[existingItemIndex] = {
+                ...updatedCartItems[existingItemIndex],
+                quantity: updatedCartItems[existingItemIndex].quantity - 1,
             }
+            return {
+                ...state,
+                cartItems: updatedCartItems,
+            }
+        }
+
         default:
             return state;
     }
