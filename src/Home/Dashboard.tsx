@@ -28,12 +28,15 @@ export default function Dashboard() {
       .then((res) => {
         setUserProfile(res.data.user);
         setUser(res.data.user.username);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
   useEffect(() => {
     handleProfile();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (!token) return <Navigate to="/user/login" />;
   return (

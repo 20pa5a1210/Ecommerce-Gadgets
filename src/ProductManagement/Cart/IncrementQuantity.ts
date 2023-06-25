@@ -11,7 +11,6 @@ type CartItemProps = {
 
 export const IncrementQuantity = ({ token, username, itemId, cartDispatch }: CartItemProps) => {
     if (token) {
-        cartDispatch({ type: "INCREASE_QUANTITY", payload: itemId });
         axios
             .put(
                 `http://localhost:8080/cart/increment/${username}/${itemId}`,
@@ -23,6 +22,7 @@ export const IncrementQuantity = ({ token, username, itemId, cartDispatch }: Car
                 }
             )
             .then((res) => {
+                cartDispatch({ type: "INCREASE_QUANTITY", payload: itemId });
                 cartDispatch({ type: "SET_CART", payload: res.data.cartItems });
             })
             .catch((err) => {
@@ -33,7 +33,6 @@ export const IncrementQuantity = ({ token, username, itemId, cartDispatch }: Car
 
 export const DecrementQuantity = ({ token, username, itemId, cartDispatch }: CartItemProps) => {
     if (token) {
-        cartDispatch({ type: "DECREASE_QUANTITY", payload: itemId });
         axios
             .put(
                 `http://localhost:8080/cart/decrement/${username}/${itemId}`,
@@ -45,6 +44,7 @@ export const DecrementQuantity = ({ token, username, itemId, cartDispatch }: Car
                 }
             )
             .then((res) => {
+                cartDispatch({ type: "DECREASE_QUANTITY", payload: itemId });
                 cartDispatch({ type: "SET_CART", payload: res.data.cartItems });
             })
             .catch((err) => {
