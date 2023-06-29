@@ -6,6 +6,7 @@ import { BaseProduct } from "../ProductManagement/ProductModels";
 import { UserContext } from "./userStore";
 import { addToCart } from "../ProductManagement/Cart/AddCart";
 import { Toaster } from "react-hot-toast";
+import Loading from "./utils/Loading";
 
 export interface Product extends BaseProduct {
   features: string[];
@@ -42,12 +43,7 @@ const ViewProduct = () => {
   }, [productId]);
 
   if (!product) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-14 w-14 border-t-2 border-b-2 border-gray-900"></div>
-        <h2 className="text-xl space-x-3 px-4">Loading...</h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
