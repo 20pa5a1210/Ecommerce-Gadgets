@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { CartContext } from "../ProductManagement/CartStore";
 
 import { BaseProduct } from "../ProductManagement/ProductModels";
 import { addToCart } from "../ProductManagement/Cart/AddCart";
 import { UserContext } from "./userStore";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 interface ProductProps {
   products: BaseProduct[];
@@ -20,7 +20,13 @@ const Products = ({ products }: ProductProps) => {
       (product) => product._id === _id
     );
     if (product) {
-      addToCart({ product, token, username, cartDispatch });
+      if (token && username) {
+        addToCart({ product, token, username, cartDispatch });
+      }
+      if (!token) {
+        toast.error("Please Login to add to cart");
+        return <Navigate to="/user/login" />;
+      }
     }
   };
   return (
